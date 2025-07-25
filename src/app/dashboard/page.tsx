@@ -46,7 +46,7 @@ export default function DashboardPage() {
 
             <div className="flex lg:flex-col flex-wrap justify-evenly space-y-6 px-6 py-10 lg:w-[28%] ">
               {/* 6. Achievements & Badges */}
-              <Card>
+              <Card className="w-full">
                 <CardHeader>
                   <CardTitle>🏅 Your Achievements</CardTitle>
                 </CardHeader>
@@ -59,11 +59,11 @@ export default function DashboardPage() {
               </Card>
 
               {/* 4. Streak Section */}
-              <Card>
+              <Card className="w-full">
                 <CardHeader>
                   <CardTitle>🔥 Learning Streak</CardTitle>
                 </CardHeader>
-                <CardContent className="flex 2xl:flex-row flex-col justify-between 2xl:items-center">
+                <CardContent className="flex w-ful 2xl:flex-row flex-col justify-between 2xl:items-center">
                   <div>
                     <p className="text-lg font-semibold">5-Day Streak</p>
                     <p className="text-sm text-muted-foreground">
@@ -75,7 +75,7 @@ export default function DashboardPage() {
               </Card>
 
               {/* 5. GitHub Activity */}
-              <Card>
+              <Card className="w-full">
                 <CardHeader>
                   <CardTitle>💻 GitHub Pushes</CardTitle>
                 </CardHeader>
@@ -98,7 +98,9 @@ export default function DashboardPage() {
             {/* second time */}
 
             <div className="flex flex-col overflow-x-hidden  gap-6">
-              <h1 className="lg:text-4xl text-xl flex   flex-row items-center font-bold">Today&apos;s Module 🎯</h1>
+              <h1 className="lg:text-4xl text-xl flex   flex-row items-center font-bold">
+                Today&apos;s Module 🎯
+              </h1>
 
               {/* Horizontal Scrollable Module Cards */}
               <div className="w-full max-w-full scrollbar-hide overflow-auto overflow-x-auto">
@@ -115,7 +117,7 @@ export default function DashboardPage() {
                             | "in-progress"
                             | "not-started"
                         }
-                        href={`/module/${mod.id}`}
+                         href={`${mod.link}/${mod.id}`}
                         onMarkDone={() =>
                           console.log(`${mod.title} marked done`)
                         }
@@ -141,7 +143,7 @@ export default function DashboardPage() {
             {/* second time */}
 
             <div className="flex flex-col overflow-x-hidden  gap-6">
-              <div className="flex flex-row items-center justify-between">
+              <div className="flex flex-row px-12 items-center justify-between">
                 <h1 className="lg:text-4xl text-xl flex   flex-row items-center font-bold">
                   Typescript Module{" "}
                   <Image
@@ -149,14 +151,18 @@ export default function DashboardPage() {
                     alt="next logo by icons8"
                     width={50}
                     height={50}
+                    className="w-12 h-12"
                   />{" "}
                 </h1>
                 <Button className=" px-4 py-2 bg-indigo-600 ">Show All</Button>
               </div>
 
-              {/* Horizontal Scrollable Module Cards */}
-              <div className="w-full max-w-full scrollbar-hide overflow-auto overflow-x-auto">
-                <div className="grid md:grid-cols-2  xl:grid-cols-3 lg:grid-cols-2 items-center gap-6 px-1 py-2">
+              {/* grid Module Cards */}
+
+              {/* --------------------------for Laptops------------------ */}
+
+              <div className="w-full  max-w-full hidden lg:flex lg:justify-center scrollbar-hide overflow-hidden overflow-x-hidden">
+                <div className="grid md:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4 gap-x-20  self-center place-items-center-safe lg:grid-cols-2 items-center gap-6 px-1 py-2">
                   {nextjsModules.slice(0, 8).map((mod) => (
                     <div key={mod.id} className="min-w-[320px] shrink-0">
                       <ModuleCard
@@ -169,7 +175,33 @@ export default function DashboardPage() {
                             | "in-progress"
                             | "not-started"
                         }
-                        href={`/module/${mod.id}`}
+                        href={`${mod.link}/${mod.id}`}
+                        onMarkDone={() =>
+                          console.log(`${mod.title} marked done`)
+                        }
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* ----------- for tablets---------- */}
+
+              <div className="w-full max-w-full lg:hidden   scrollbar-hide overflow-hidden overflow-x-hidden">
+                <div className="grid md:grid-cols-2  xl:grid-cols-3 lg:grid-cols-2 items-center gap-6 px-1 py-2">
+                  {nextjsModules.slice(0, 4).map((mod) => (
+                    <div key={mod.id} className="min-w-[320px] shrink-0">
+                      <ModuleCard
+                        title={mod.title}
+                        description={mod.description}
+                        progress={mod.progress}
+                        status={
+                          mod.status as
+                            | "completed"
+                            | "in-progress"
+                            | "not-started"
+                        }
+                         href={`${mod.link}/${mod.id}`}
                         onMarkDone={() =>
                           console.log(`${mod.title} marked done`)
                         }
@@ -188,7 +220,7 @@ export default function DashboardPage() {
             {/* second time */}
 
             <div className="flex flex-col overflow-x-hidden  gap-6">
-              <div className="flex flex-row items-center gap-[10%] justify-between">
+              <div className="flex px-12 flex-row items-center gap-[10%] justify-between  ">
                 <h1 className="lg:text-4xl text-xl flex   flex-row items-center font-bold">
                   Next.js Module{" "}
                   <Image
@@ -196,14 +228,18 @@ export default function DashboardPage() {
                     alt="next logo by icons8"
                     width={50}
                     height={50}
+                    className="w-12 h-12"
                   />{" "}
                 </h1>
                 <Button className=" px-4 py-2 bg-indigo-600 ">Show All</Button>
               </div>
 
-              {/* Horizontal Scrollable Module Cards */}
-              <div className="w-full max-w-full scrollbar-hide overflow-auto overflow-x-auto">
-                <div className="grid md:grid-cols-2  xl:grid-cols-3 lg:grid-cols-2 items-center gap-6 px-1 py-2">
+              {/* next.js grid Module Cards */}
+
+              {/* --------------------------for Laptops------------------ */}
+
+              <div className="w-full max-w-full hidden lg:flex lg:justify-center  scrollbar-hide overflow-hidden overflow-x-hidden">
+                <div className="grid md:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4 gap-x-20  lg:grid-cols-2 items-center gap-6 px-1 py-2">
                   {nextjsModules.slice(0, 8).map((mod) => (
                     <div key={mod.id} className="min-w-[320px] shrink-0">
                       <ModuleCard
@@ -216,7 +252,33 @@ export default function DashboardPage() {
                             | "in-progress"
                             | "not-started"
                         }
-                        href={`/module/${mod.id}`}
+                         href={`${mod.link}/${mod.id}`}
+                        onMarkDone={() =>
+                          console.log(`${mod.title} marked done`)
+                        }
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* ----------- for tablets---------- */}
+
+              <div className="w-full max-w-full lg:hidden   scrollbar-hide overflow-hidden overflow-x-hidden">
+                <div className="grid md:grid-cols-2  xl:grid-cols-3 lg:grid-cols-2 items-center gap-6 px-1 py-2">
+                  {nextjsModules.slice(0, 4).map((mod) => (
+                    <div key={mod.id} className="min-w-[320px] shrink-0">
+                      <ModuleCard
+                        title={mod.title}
+                        description={mod.description}
+                        progress={mod.progress}
+                        status={
+                          mod.status as
+                            | "completed"
+                            | "in-progress"
+                            | "not-started"
+                        }
+                         href={`${mod.link}/${mod.id}`}
                         onMarkDone={() =>
                           console.log(`${mod.title} marked done`)
                         }
