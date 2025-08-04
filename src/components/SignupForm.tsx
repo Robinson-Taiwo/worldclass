@@ -36,7 +36,6 @@ const SignupForm = () => {
   const [show, setShow] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const dispatch = useDispatch();
   const router = useRouter();
 
   type signupData = z.infer<typeof registerSchema>;
