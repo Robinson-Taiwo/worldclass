@@ -6,19 +6,14 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-interface PageProps {
-  params: {
-    moduleid: string;
-  };
-}
-
-const TypescriptModuleDetails = ({ params }: PageProps) => {
-  const moduleid = params.moduleid;
+const TypescriptModuleDetails = async ({
+  params,
+}: {
+  params: Promise<{ moduleid: string }>;
+}) => {
+  const { moduleid } = await params; // ✅ Await the param
   const modules = TypescriptModules.find((mod) => mod.id === moduleid);
 
-  {
-    console.log(modules);
-  }
   return (
     <div className="w-full p-2">
       <Link

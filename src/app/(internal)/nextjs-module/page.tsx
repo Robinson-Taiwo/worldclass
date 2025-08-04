@@ -6,19 +6,14 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-interface PageProps {
-  params: {
-    moduleid: string;
-  };
-}
-
-const NextjsModuleDetails = ({ params }: PageProps) => {
-  const moduleid = params.moduleid;
+// 🔧 Fix: params is a Promise
+const NextjsModuleDetails = async ({
+  params,
+}: {
+  params: Promise<{ moduleid: string }>;
+}) => {
+  const { moduleid } = await params; // ✅ Await the param
   const modules = nextjsModules.find((mod) => mod.id === moduleid);
-
-  {
-    console.log(modules);
-  }
 
   return (
     <div className="w-full p-2">
@@ -152,7 +147,9 @@ const NextjsModuleDetails = ({ params }: PageProps) => {
           </p>
           <p className="text-md  flex gap-2 flex-col  ">
             {" "}
-            <span className="text-black  font-bold ">project live link here</span>
+            <span className="text-black  font-bold ">
+              project live link here
+            </span>
             <span className="text-black lg:text-base text-sm ">
               {" "}
               <Input
@@ -166,7 +163,10 @@ const NextjsModuleDetails = ({ params }: PageProps) => {
             <label className="text-black  font-bold ">Note and Journal</label>
             <span className="text-black lg:text-base text-sm ">
               {" "}
-              <Textarea className="text-sm placeholder:text-sm  " placeholder="Add your comments and notes here" />
+              <Textarea
+                className="text-sm placeholder:text-sm  "
+                placeholder="Add your comments and notes here"
+              />
             </span>{" "}
           </div>
         </div>
