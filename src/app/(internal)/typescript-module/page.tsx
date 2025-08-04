@@ -6,8 +6,16 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const TypescriptModuleDetails = ({ moduleid }: { moduleid: string }) => {
+interface PageProps {
+  params: {
+    moduleid: string;
+  };
+}
+
+const TypescriptModuleDetails = ({ params }: PageProps) => {
+  const moduleid = params.moduleid;
   const modules = TypescriptModules.find((mod) => mod.id === moduleid);
+
   {
     console.log(modules);
   }

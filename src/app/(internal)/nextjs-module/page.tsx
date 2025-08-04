@@ -6,10 +6,16 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
+interface PageProps {
+  params: {
+    moduleid: string;
+  };
+}
 
-
-const NextjsModuleDetails = ({ moduleid }: { moduleid: string }) => {
+const NextjsModuleDetails = ({ params }: PageProps) => {
+  const moduleid = params.moduleid;
   const modules = nextjsModules.find((mod) => mod.id === moduleid);
+
   {
     console.log(modules);
   }

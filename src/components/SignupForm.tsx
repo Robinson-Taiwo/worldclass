@@ -20,7 +20,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { registerSchema } from "@/schema/auth";
-import { useDispatch } from "react-redux";
 // import { setUser } from "@/store/slices/UserSlice";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
