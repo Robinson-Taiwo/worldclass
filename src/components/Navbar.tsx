@@ -1,77 +1,36 @@
-"use client";
+import { UserCircle2 } from "lucide-react";
+import React from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 import Link from "next/link";
-import { useState } from "react";
 
-export default function Navbar() {
-
-
-
-  const [activeNav, setActiveNav] = useState("");
-  // const storage = sessionStorage
-// const activeLink = sessionStorage.getItem("activeNav")
-// console.log(activeLink)
-
-
+const Navbar = () => {
   return (
     <>
-      <div className=" text-white p-2 w-screen mt-6 flex gap-4 justify-center">
-        <div className="flex bg-black space-x-12 p-4 px-8 rounded-3xl flex-row">
-          <div className="flex flex-col">
-            <p onClick={() => setActiveNav("Home")}>
-              <Link className="  p-2" href="/">
-                Home
-              </Link>
-            </p>
-            {activeNav === "Home" && <div className="w-full  border"></div>}
-          </div>
-          {/* <Link className='border-b items-center block border-white p-2' href="/dashboard">Dashboard</Link> */}
-
-          <div className="flex flex-col">
-            <p onClick={() => setActiveNav("About")}>
-              <Link className="  p-2" href="/about">
-                About
-              </Link>
-            </p>
-            {activeNav === "About" && (
-              <div className="w-full  border"></div>
-            )}
-          </div>
-
-
-
-
-          <div className="flex flex-col">
-            <p onClick={() => setActiveNav("About")}>
-              <Link className="  p-2" href="/about">
-                About
-              </Link>
-            </p>
-            {activeNav === "About" && (
-              <div className="w-full  border"></div>
-            )}
-          </div>
-
-          <div className="flex flex-col">
-            <p onClick={() => setActiveNav("Contact")  }>
-              <Link className="  p-2" href="/contact">
-                Contact
-              </Link>
-            </p>
-            {activeNav === "Contact" && <div className="w-full  border"></div>}
-          </div>
-
-         
-
-          <div className="flex flex-col">
-            <p onClick={() => setActiveNav("Faq")}>
-              <Link className="  p-2" href="/faq">
-                Faq
-              </Link>
-            </p>
-            {activeNav === "Faq" && <div className="w-full  border"></div>}
-          </div>
-        </div>
+      <div className="flex items-center border-b border-b-border  justify-end w-full px-6 pb-4 flex-row">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <UserCircle2 className="mr-2 w-6 h-4=6" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent side="top">
+            <DropdownMenuItem asChild>
+              <Link href="/profile">Profile</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/account">Account</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/logout">Log out</Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>{" "}
       </div>
     </>
   );
-}
+};
+
+export default Navbar;

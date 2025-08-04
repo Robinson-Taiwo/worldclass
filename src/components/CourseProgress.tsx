@@ -46,7 +46,7 @@ const CourseProgress = ({
             cx={center}
             cy={center}
             r={radius}
-            stroke="#4f46e5"
+            stroke="orange"
             strokeWidth={strokeWidth}
             strokeLinecap="round"
             fill="transparent"
@@ -54,7 +54,7 @@ const CourseProgress = ({
             strokeDashoffset={offset}
           />
         </svg>
-        <span className="absolute text-lg font-semibold text-indigo-600">
+        <span className="absolute text-lg font-semibold text-orange-600">
           {progress}%
         </span>
       </div>

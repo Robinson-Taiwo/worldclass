@@ -84,7 +84,7 @@ export function ModuleCard({
       <CardContent className="space-y-2">
         <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
           <div
-            className="h-full bg-indigo-600 transition-all"
+            className="h-full bg-orange-400 transition-all"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -94,7 +94,7 @@ export function ModuleCard({
       <CardFooter className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
         <Link
           href={href}
-          className="text-sm underline text-indigo-600 hover:text-indigo-700"
+          className="text-sm underline text-orange-600 hover:text-orange-700"
         >
           View Module
         </Link>
@@ -102,10 +102,10 @@ export function ModuleCard({
           onClick={onMarkDone}
           disabled={status === "completed"}
           className={cn(
-            "text-sm flex items-center gap-2 px-3 py-1.5 rounded-md border transition-all w-full sm:w-auto",
+            "text-sm flex items-center gap-2 px-3 py-1.5 rounded-md border transition-all w-fit lg:w-fit sm:w-auto",
             status === "completed"
               ? "bg-green-100 text-green-700 border-green-300 cursor-not-allowed"
-              : "bg-indigo-600 text-white hover:bg-indigo-700"
+              : "bg-orange-600 text-white hover:bg-orange-700"
           )}
         >
           {status === "completed" ? (

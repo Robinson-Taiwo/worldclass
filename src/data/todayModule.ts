@@ -1,0 +1,38 @@
+export const todaysModules = [
+  {
+    id: "nextjs-intro",
+    title: "Introduction to Next.js",
+    description: "Understand the basics of server-side render Next.js.",
+    progress: 40,
+    status: "in-progress",
+    course: "next.js",
+    link: "/nextjs-module",
+  },
+  {
+    id: "typescript-intro",
+    title: "Introduction to Typescript",
+    description: "Understand the basics of server-side render Typescript.",
+    progress: 40,
+    status: "in-progress",
+    course: "Typescript",
+    link: "/typescript-module",
+  },
+  {
+    id: "nextjs-routing",
+    title: "Routing in Next.js",
+    description: "Learn how to set up dynamic and nested routes.",
+    progress: 0,
+    status: "not-started",
+    course: "next.js",
+    link: "/nextjs-module",
+  },
+  {
+    id: "typescript-api",
+    title: "API Routes",
+    description: "Explore backend API routes within Typescript.",
+    progress: 100,
+    status: "completed",
+    course: "Typescript",
+    link: "/typescript-module",
+  },
+];
