@@ -6,7 +6,7 @@ export const TypescriptModulesData = [
     progress: 40,
     status: "in-progress",
     course: "Typescript",
-    link: "/typescript-module",
+    link: "/typescript-modules",
   },
   {
     id: "typescript-routing",
@@ -15,7 +15,7 @@ export const TypescriptModulesData = [
     progress: 0,
     status: "not-started",
     course: "Typescript",
-    link: "/typescript-module",
+    link: "/typescript-modules",
   },
   {
     id: "typescript-api",
@@ -24,7 +24,7 @@ export const TypescriptModulesData = [
     progress: 100,
     status: "completed",
     course: "Typescript",
-    link: "/typescript-module",
+    link: "/typescript-modules",
   },
   {
     id: "typescript-apif",
@@ -33,7 +33,7 @@ export const TypescriptModulesData = [
     progress: 100,
     status: "completed",
     course: "Typescript",
-    link: "/typescript-module",
+    link: "/typescript-modules",
   },
   {
     id: "typescript-apffi",
@@ -42,7 +42,7 @@ export const TypescriptModulesData = [
     progress: 100,
     status: "completed",
     course: "Typescript",
-    link: "/typescript-module",
+    link: "/typescript-modules",
   },
   {
     id: "typescript-apff4i",
@@ -51,7 +51,7 @@ export const TypescriptModulesData = [
     progress: 100,
     status: "completed",
     course: "Typescript",
-    link: "/typescript-module",
+    link: "/typescript-modules",
   },
   {
     id: "typescript-apf3fi",
@@ -60,7 +60,7 @@ export const TypescriptModulesData = [
     progress: 100,
     status: "completed",
     course: "Typescript",
-    link: "/typescript-module",
+    link: "/typescript-modules",
   },
 
   {
@@ -70,6 +70,6 @@ export const TypescriptModulesData = [
     progress: 20,
     status: "in-progress",
     course: "Typescript",
-    link: "/typescript-module",
+    link: "/typescript-modules",
   },
 ];

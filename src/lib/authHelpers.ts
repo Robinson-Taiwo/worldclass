@@ -1,32 +1,74 @@
+"use client";
+
+import { auth } from "@/firebase/firebaseConfig";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut,
+  sendEmailVerification,
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider,
+  signOut,
+  UserCredential,
 } from "firebase/auth";
+import { toast } from "sonner";
 
-import { auth} from "@/firebase/firebaseConfig"; // adjust path if needed
-
-export const registerWithEmail = async (email: string, password: string) => {
-  return await createUserWithEmailAndPassword(auth, email, password);
+// Email Signup
+export const registerWithEmail = async (
+  email: string,
+  password: string
+): Promise<UserCredential> => {
+  const userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+  await sendEmailVerification(userCredential.user);
+  toast.success("Signup successful! Verification email sent.");
+  return userCredential;
 };
 
-export const loginWithEmail = async (email: string, password: string) => {
-  return await signInWithEmailAndPassword(auth, email, password);
+// Email Login
+export const loginWithEmail = async (
+  email: string,
+  password: string
+): Promise<UserCredential> => {
+  const userCredential = await signInWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+  const user = userCredential.user;
+
+  if (!user.emailVerified) {
+    toast.error("Please verify your email before logging in.");
+    throw new Error("Email not verified");
+  }
+
+  toast.success("Logged in successfully!");
+  return userCredential;
 };
 
-export const signInWithGoogle = async () => {
+// Google Login (with account selector)
+export const signInWithGoogle = async (): Promise<UserCredential> => {
   const provider = new GoogleAuthProvider();
-  return await signInWithPopup(auth, provider);
+  provider.setCustomParameters({ prompt: "select_account" });
+  const result = await signInWithPopup(auth, provider);
+  toast.success(`Logged in as ${result.user.displayName}`);
+  return result;
 };
 
-export const signInWithGithub = async () => {
+// GitHub Login (with account selector)
+export const signInWithGithub = async (): Promise<UserCredential> => {
   const provider = new GithubAuthProvider();
-  return await signInWithPopup(auth, provider);
+  provider.setCustomParameters({ prompt: "select_account" });
+  const result = await signInWithPopup(auth, provider);
+  toast.success(`Logged in as ${result.user.displayName}`);
+  return result;
 };
 
+// Logout
 export const logout = async () => {
-  return await signOut(auth);
+  await signOut(auth);
+  toast.success("Logged out successfully.");
 };

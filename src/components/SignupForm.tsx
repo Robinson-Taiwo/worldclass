@@ -30,6 +30,7 @@ import {
 } from "@/lib/authHelpers";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const SignupForm = () => {
   const [show, setShow] = useState<boolean>(false);
@@ -78,7 +79,7 @@ const SignupForm = () => {
     try {
       await signInWithGoogle();
 
-      router.push("/authentication/login");
+      router.push("/dashboard");
     } catch (err: unknown) {
       if (
         typeof err === "object" &&
@@ -100,7 +101,7 @@ const SignupForm = () => {
       await signInWithGithub();
 
       toast("You have successfully signed up with Github.");
-      router.push("/authentication/login");
+      router.push("/dashboard");
     } catch (err: unknown) {
       if (
         typeof err === "object" &&
@@ -263,6 +264,16 @@ const SignupForm = () => {
           </span>
           <span>Sign up with Github</span>
         </Button>
+      </div>
+
+      <div className="flex w-full text-sm p-2 font-normal items-center justify-center">
+        <span> Already have an account? </span>
+        <span className="text-orange-600 px-2 ">
+          <Link className="text-sm font-normal" href="/authentication/login">
+            {" "}
+            Sign up{" "}
+          </Link>
+        </span>
       </div>
     </div>
   );

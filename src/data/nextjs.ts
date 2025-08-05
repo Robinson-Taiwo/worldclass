@@ -6,7 +6,7 @@ export const nextjsModulesData = [
     progress: 40,
     status: "in-progress",
 course: "next.js",
-link: "/nextjs-module"  
+link: "/nextjs-modules"  
 },
   {
     id: "nextjs-routing",
@@ -15,7 +15,7 @@ link: "/nextjs-module"
     progress: 0,
     status: "not-started",
 course: "next.js",
-link: "/nextjs-module"  
+link: "/nextjs-modules"  
 },
   {
     id: "nextjs-api",
@@ -24,7 +24,7 @@ link: "/nextjs-module"
     progress: 100,
     status: "completed",
 course: "next.js",
-link: "/nextjs-module"    
+link: "/nextjs-modules"    
 },
    {
     id: "nextjs-apif",
@@ -33,7 +33,7 @@ link: "/nextjs-module"
     progress: 100,
     status: "completed",
 course: "next.js",
-link: "/nextjs-module"    
+link: "/nextjs-modules"    
 },
     {
     id: "nextjs-apffi",
@@ -42,7 +42,7 @@ link: "/nextjs-module"
     progress: 100,
     status: "completed",
 course: "next.js",
-link: "/nextjs-module"    
+link: "/nextjs-modules"    
 },
      {
     id: "nextjs-apff4i",
@@ -51,7 +51,7 @@ link: "/nextjs-module"
     progress: 100,
     status: "completed",
 course: "next.js",
-link: "/nextjs-module"    
+link: "/nextjs-modules"    
 },
        {
     id: "nextjs-apf3fi",
@@ -60,7 +60,7 @@ link: "/nextjs-module"
     progress: 100,
     status: "completed",
 course: "next.js",
-link: "/nextjs-module"    
+link: "/nextjs-modules"    
 },
  
     {
@@ -70,6 +70,6 @@ link: "/nextjs-module"
         progress: 20,
         status: "in-progress",
     course: "next.js",
-    link: "/nextjs-module"
+    link: "/nextjs-modules"
     },
 ]

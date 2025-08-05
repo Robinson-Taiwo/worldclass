@@ -31,6 +31,7 @@ import "@/components/ui/collapsible";
 import { useDispatch } from "react-redux";
 import { logout } from "@/lib/authHelpers";
 import { clearUser } from "@/store/slices/UserSlice"; // adjust path if needed
+import { useRouter } from "next/navigation";
 
 // Top navigation
 const mainMenu = [
@@ -41,12 +42,15 @@ const mainMenu = [
 ];
 
 export function AppSidebar() {
+  const router = useRouter();
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
     try {
       await logout(); // Firebase logout
       dispatch(clearUser()); // Clear from Redux store
+      router.push("/authentication/login");
+
       console.log("Logged out successfully");
     } catch (err) {
       console.error("Logout failed:", err);
