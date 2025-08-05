@@ -4,6 +4,7 @@ export type User = {
   username: string;
   email: string;
   id: string;
+  isLoggedIn:boolean
 };
 
 type UserState = {

@@ -61,7 +61,7 @@ const CourseProgress = ({
 
       {/* Completion Label */}
       <p className="text-sm text-center w-full text-muted-foreground">
-        {completed} / {total} modules completed
+        {completed} / {total} completed
       </p>
     </div>
   );

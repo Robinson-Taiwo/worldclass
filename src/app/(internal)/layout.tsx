@@ -4,6 +4,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,13 +31,13 @@ export default function RootLayout({
     <div className={`${geistSans.variable} ${geistMono.variable} antialiased `}>
       <SidebarProvider>
         <AppSidebar />
-        <main className="overflow-x-hidden  w-screen">
+        <main className="overflow-x-hidden h-screen min-h-screen  w-screen">
           <div className="">
             <SidebarTrigger />
           </div>
           <div className="flex pb-8 flex-col ">
             <Navbar />
-            {children}
+            <ProtectedRoute>{children}</ProtectedRoute>
           </div>
 
           <Footer />

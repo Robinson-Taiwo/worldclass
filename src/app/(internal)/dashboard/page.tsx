@@ -35,13 +35,13 @@ export default function DashboardPage() {
 
         <section className="flex  w-full justify-center">
           <div className="w-full   justify-center flex flex-col  xl:flex-row ">
-            <div className="space-y-6 px-4 py-10   lg:w-[70%] ">
+            <div className="space-y-6 lg:px-4 py-10    xl:w-[70%] ">
               <div className="w-full flex items-center flex-col 2xl:flex-col justify-center xl:justify-evenly ">
-                <div className="xl:h-[30rem] w-[100%] xl:w-[100%]  px-[5%] items-center justify-center relative ">
+                <div className="xl:h-[30rem] p-0 w-[100%] xl:w-[100%] h-[15rem]  lg:px-[5%] items-center justify-center relative ">
                   <StreakChart />
                 </div>
 
-                <div className="flex flex-row xl:mt-[2rem]  xl:flex-row 2xl:flex-row mt-10 lg:mt-0 justify-evenly items-center xl:gap-[5rem] xl:justify-between xl:w-fit w-full ">
+                <div className="flex flex-row xl:mt-[4rem]   xl:flex-row 2xl:flex-row mt-20 lg:mt-20 justify-evenly items-center xl:gap-[5rem] xl:justify-between xl:w-fit w-full ">
                   <CourseProgress
                     title="TypeScript"
                     completed={14}
@@ -52,7 +52,7 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            <div className="flex flex-row  lg:flex-row w-full flex-wrap justify-evenly space-y-6 px-6 py-10 lg:w-[28%] ">
+            <div className="flex flex-row  lg:flex-row w-full flex-wrap justify-evenly space-y-6 px-6 py-10 xl:w-[28%] ">
               {/* 6. Achievements & Badges */}
               <Card className="w-full">
                 <CardHeader>
@@ -175,7 +175,7 @@ export default function DashboardPage() {
 
               {/* --------------------------for Laptops------------------ */}
 
-              <div className="w-full  max-w-full hidden lg:flex lg:justify-center scrollbar-hide overflow-hidden overflow-x-hidden">
+              <div className="w-full   max-w-full hidden lg:flex lg:justify-center scrollbar-hide overflow-hidden overflow-x-hidden">
                 <div className="grid md:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4 gap-x-20  self-center place-items-center-safe lg:grid-cols-2 items-center gap-6 px-1 py-2">
                   {TypescriptModulesData.slice(0, 8).map((mod) => (
                     <div key={mod.id} className="min-w-[320px] shrink-0">
@@ -201,8 +201,8 @@ export default function DashboardPage() {
 
               {/* ----------- for tablets---------- */}
 
-              <div className="w-full max-w-full lg:hidden   scrollbar-hide overflow-hidden overflow-x-hidden">
-                <div className="grid md:grid-cols-2  xl:grid-cols-3 lg:grid-cols-2 items-center gap-6 px-1 py-2">
+              <div className="w-full max-w-full lg:hidden flex items-center    scrollbar-hide overflow-hidden overflow-x-hidden">
+                <div className="grid md:grid-cols-2 mx-auto w-full xl:grid-cols-3 lg:grid-cols-2 items-center gap-6 px-1 py-2">
                   {TypescriptModulesData.slice(0, 4).map((mod) => (
                     <div key={mod.id} className="min-w-[320px] shrink-0">
                       <ModuleCard
@@ -270,7 +270,7 @@ export default function DashboardPage() {
                             | "in-progress"
                             | "not-started"
                         }
-                        href={`${mod.link}/${mod.id}`}
+                        href={`${mod.link}s/${mod.id}`}
                         onMarkDone={() =>
                           console.log(`${mod.title} marked done`)
                         }
@@ -296,7 +296,7 @@ export default function DashboardPage() {
                             | "in-progress"
                             | "not-started"
                         }
-                        href={`${mod.link}/${mod.id}`}
+                        href={`${mod.link}s/${mod.id}`}
                         onMarkDone={() =>
                           console.log(`${mod.title} marked done`)
                         }

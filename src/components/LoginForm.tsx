@@ -67,6 +67,7 @@ const LoginForm = () => {
           id: user.uid,
           email: user.email!,
           username: user.displayName || "",
+          isLoggedIn: true
         })
       );
 
@@ -112,6 +113,7 @@ const LoginForm = () => {
           id: user.uid,
           email: user.email!,
           username: user.displayName || "",
+          isLoggedIn: true
         })
       );
 
@@ -154,6 +156,7 @@ const LoginForm = () => {
           id: user.uid,
           email: user.email!,
           username: user.displayName || "",
+          isLoggedIn:true
         })
       );
 
@@ -299,7 +302,7 @@ const LoginForm = () => {
                 ></path>
               </svg>
             ) : (
-              "Sign Up"
+              "Log in"
             )}
           </Button>
         </form>
