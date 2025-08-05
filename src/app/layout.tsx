@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Refhra Web",
-  description: "A balance and profuctivity platform",
+  title: "Worldclass",
+  description: "a project to help you become world class in next and typescript with their documentations",
 };
 
 export default function RootLayout({

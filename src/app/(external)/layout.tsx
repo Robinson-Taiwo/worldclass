@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "next-project",
-  description: "Typescript and Next.js learing website",
+  title: "Worldclass",
+  description:
+    "a project to help you become world class in next and typescript with their documentations",
 };
 
 export default function RootLayout({

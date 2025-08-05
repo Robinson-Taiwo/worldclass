@@ -1,19 +1,19 @@
+// src/app/(internal)/nextjs-module/[moduleid]/page.tsx
+
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { nextjsModules } from "@/data/nextjs";
+import { TypescriptModulesData } from "@/data/typescript";
 import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-
-// 🔧 Fix: params is a Promise
-const NextjsModuleDetails = async ({
-  params,
-}: {
+interface PageProps {
   params: Promise<{ moduleid: string }>;
-}) => {
-  const { moduleid } = await params; // ✅ Await the param
-  const modules = nextjsModules.find((mod) => mod.id === moduleid);
+}
+
+const Page = async ({ params }: PageProps) => {
+  const { moduleid } = await params;
+  const modules = TypescriptModulesData.find((mod) => mod.id === moduleid);
 
   return (
     <div className="w-full p-2">
@@ -175,4 +175,4 @@ const NextjsModuleDetails = async ({
   );
 };
 
-export default NextjsModuleDetails;
+export default Page;

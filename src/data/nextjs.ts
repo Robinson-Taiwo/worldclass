@@ -1,4 +1,4 @@
-export const nextjsModules = [
+export const nextjsModulesData = [
   {
     id: "nextjs-intro",
     title: "Introduction to Next.js",

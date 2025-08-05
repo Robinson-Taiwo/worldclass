@@ -11,10 +11,11 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <>
-      <div className="flex items-center border-b border-b-border  justify-end w-full px-6 pb-4 flex-row">
+      <div className="flex items-center border-b border-b-border  justify-between w-full px-6 pb-4 flex-row">
+        <h1 className="font-bold text-3xl   ">WorldClass.io</h1>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <UserCircle2 className="mr-2 w-6 h-4=6" />
+            <UserCircle2 className="mr-2 w-8 h-8 " />
           </DropdownMenuTrigger>
           <DropdownMenuContent side="top">
             <DropdownMenuItem asChild>

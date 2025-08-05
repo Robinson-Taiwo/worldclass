@@ -1,4 +1,4 @@
-export const TypescriptModules = [
+export const TypescriptModulesData = [
   {
     id: "typescript-intro",
     title: "Introduction to Typescript",

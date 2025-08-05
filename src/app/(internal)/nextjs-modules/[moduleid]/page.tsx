@@ -1,18 +1,22 @@
+// src/app/(internal)/nextjs-module/[moduleid]/page.tsx
+
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { TypescriptModules } from "@/data/typescript";
+import {  nextjsModulesData } from "@/data/nextjs";
 import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const TypescriptModuleDetails = async ({
-  params,
-}: {
+
+
+interface PageProps {
   params: Promise<{ moduleid: string }>;
-}) => {
+}
+
+const Page = async ({ params }: PageProps) => {
   const { moduleid } = await params; // ✅ Await the param
-  const modules = TypescriptModules.find((mod) => mod.id === moduleid);
+  const modules = nextjsModulesData.find((mod) => mod.id === moduleid);
 
   return (
     <div className="w-full p-2">
@@ -174,4 +178,4 @@ const TypescriptModuleDetails = async ({
   );
 };
 
-export default TypescriptModuleDetails;
+export default Page;

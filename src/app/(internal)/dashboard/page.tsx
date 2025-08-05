@@ -5,19 +5,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import StreakChart from "@/components/chart/ChartComponents";
 import { ModuleCard } from "@/components/ModuleCard";
-import { nextjsModules } from "@/data/nextjs";
+import { nextjsModulesData } from "@/data/nextjs";
 import CourseProgress from "@/components/CourseProgress";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { TypescriptModules } from "@/data/typescript";
+import { TypescriptModulesData } from "@/data/typescript";
 import { todaysModules } from "@/data/todayModule";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import Link from "next/link";
 
 export default function DashboardPage() {
   const user = useSelector((state: RootState) => state.user.user);
-  console.log(user)
+  console.log(user);
 
   return (
     <div className=" overflow-x-hidden overflow-hidden  scrollbar-hide flex flex-col ">
@@ -25,7 +26,7 @@ export default function DashboardPage() {
         {/* 1. Welcome Section */}
         <div className="space-y-1 w-full max-w-full mt-4 px-6">
           <h1 className="lg:text-2xl text-lg  font-bold">
-            Welcome,{user?.username} 👋 
+            Welcome,{user?.username} 👋
           </h1>
           <p className="text-muted-foreground">
             Let’s keep your streak alive today.
@@ -133,7 +134,7 @@ export default function DashboardPage() {
                       />
                     </div>
                   ))}
-                  {nextjsModules.length > 4 && (
+                  {nextjsModulesData.length > 4 && (
                     <Button className="rounded-full 2xl:hidden h-12 w-12 bg-orange-600 ">
                       {" "}
                       <ArrowRight />{" "}
@@ -163,7 +164,11 @@ export default function DashboardPage() {
                     className="w-12 h-12"
                   />{" "}
                 </h1>
-                <Button className=" px-4 py-2 bg-orange-600 ">Show All</Button>
+                <Link href="/typescript-modules">
+                  <Button className=" px-4 py-2 bg-orange-600 ">
+                    Show All
+                  </Button>
+                </Link>
               </div>
 
               {/* grid Module Cards */}
@@ -172,7 +177,7 @@ export default function DashboardPage() {
 
               <div className="w-full  max-w-full hidden lg:flex lg:justify-center scrollbar-hide overflow-hidden overflow-x-hidden">
                 <div className="grid md:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4 gap-x-20  self-center place-items-center-safe lg:grid-cols-2 items-center gap-6 px-1 py-2">
-                  {TypescriptModules.slice(0, 8).map((mod) => (
+                  {TypescriptModulesData.slice(0, 8).map((mod) => (
                     <div key={mod.id} className="min-w-[320px] shrink-0">
                       <ModuleCard
                         title={mod.title}
@@ -198,7 +203,7 @@ export default function DashboardPage() {
 
               <div className="w-full max-w-full lg:hidden   scrollbar-hide overflow-hidden overflow-x-hidden">
                 <div className="grid md:grid-cols-2  xl:grid-cols-3 lg:grid-cols-2 items-center gap-6 px-1 py-2">
-                  {TypescriptModules.slice(0, 4).map((mod) => (
+                  {TypescriptModulesData.slice(0, 4).map((mod) => (
                     <div key={mod.id} className="min-w-[320px] shrink-0">
                       <ModuleCard
                         title={mod.title}
@@ -240,7 +245,11 @@ export default function DashboardPage() {
                     className="w-12 h-12"
                   />{" "}
                 </h1>
-                <Button className=" px-4 py-2 bg-orange-600 ">Show All</Button>
+                <Link href="/nextjs-modules">
+                  <Button className=" px-4 py-2 bg-orange-600 ">
+                    Show All
+                  </Button>
+                </Link>{" "}
               </div>
 
               {/* next.js grid Module Cards */}
@@ -249,7 +258,7 @@ export default function DashboardPage() {
 
               <div className="w-full max-w-full hidden lg:flex lg:justify-center  scrollbar-hide overflow-hidden overflow-x-hidden">
                 <div className="grid md:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4 gap-x-20  lg:grid-cols-2 items-center gap-6 px-1 py-2">
-                  {nextjsModules.slice(0, 8).map((mod) => (
+                  {nextjsModulesData.slice(0, 8).map((mod) => (
                     <div key={mod.id} className="min-w-[320px] shrink-0">
                       <ModuleCard
                         title={mod.title}
@@ -275,7 +284,7 @@ export default function DashboardPage() {
 
               <div className="w-full max-w-full lg:hidden   scrollbar-hide overflow-hidden overflow-x-hidden">
                 <div className="grid md:grid-cols-2  xl:grid-cols-3 lg:grid-cols-2 items-center gap-6 px-1 py-2">
-                  {nextjsModules.slice(0, 4).map((mod) => (
+                  {nextjsModulesData.slice(0, 4).map((mod) => (
                     <div key={mod.id} className="min-w-[320px] shrink-0">
                       <ModuleCard
                         title={mod.title}
