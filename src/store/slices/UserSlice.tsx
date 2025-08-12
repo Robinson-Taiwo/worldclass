@@ -4,7 +4,10 @@ export type User = {
   username: string;
   email: string;
   id: string;
-  isLoggedIn:boolean
+  isLoggedIn: boolean;
+  role: string;
+  photoURL: string | null;
+  phoneNumber: string | null;
 };
 
 type UserState = {

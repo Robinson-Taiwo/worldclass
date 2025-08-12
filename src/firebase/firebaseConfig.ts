@@ -2,6 +2,8 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
+import { getFirestore } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAjeK2cDVB77aAm03Rg76dOcHWURIiGdJI",
   authDomain: "next-typescript-b7863.firebaseapp.com",
@@ -14,6 +16,7 @@ const firebaseConfig = {
 
 // Prevent duplicate initialization (Next.js runs things multiple times sometimes)
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+export const db = getFirestore(app); // 🧠 This gets you Firestore
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();

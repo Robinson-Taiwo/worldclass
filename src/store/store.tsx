@@ -2,6 +2,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/UserSlice";
 import moduleReducer from "./slices/moduleSlice";
+import typescriptModules from "./slices/typescriptSlice";
+
 import {
   persistStore,
   persistReducer,
@@ -25,6 +27,7 @@ export const store = configureStore({
   reducer: {
     user: persistedUserReducer, // 👈🏽 register it under the `user` key
     module: moduleReducer,
+    typescriptModules: typescriptModules, // 👈🏽 Add it here
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

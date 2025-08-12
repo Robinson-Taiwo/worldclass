@@ -1,50 +1,73 @@
+// store/slices/nextjsModulesSlice.ts
+
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export type Module = {
+export type NextjsModule = {
   id: string;
   title: string;
   description: string;
-  progress: number;
-  status: string;
-  course: string;
-  link: string;
-  done: boolean;
+  time: string;
+  prerequisite: string;
+  course: "next.js"; // locked to next.js
+  documentation?: string;
+  youtube?: string;
+  projectBrief?: string;
+  acceptanceCriteria?: string;
+  status?: "not started" | "in progress" | "completed";
+
+  // 🔄 User-updatable fields
+  githubLink?: string | "";
+  liveLink?: string | "";
+  progress?: number | null; // 0 to 100
+  note?: string | "";
+  journal?: string | "";
 };
 
-export type ModuleState = {
-  modules: Module[];
-};
+interface NextjsModulesState {
+  modules: NextjsModule[];
+}
 
-const initialState: ModuleState = {
+const initialState: NextjsModulesState = {
   modules: [],
 };
 
-const ModuleSlice = createSlice({
-  name: "module",
+const nextjsModulesSlice = createSlice({
+  name: "nextjsModules",
   initialState,
   reducers: {
-    addModule: (state, action: PayloadAction<Module>) => {
+    setNextjsModules: (state, action: PayloadAction<NextjsModule[]>) => {
+      state.modules = action.payload;
+    },
+
+    addNextjsModule: (state, action: PayloadAction<NextjsModule>) => {
       state.modules.push(action.payload);
     },
 
-    updateModule: (state, action: PayloadAction<Module>) => {
-      const index = state.modules.findIndex(
-        (item) => item.id === action.payload.id
-      );
-
+    updateNextjsModule: (
+      state,
+      action: PayloadAction<{ id: string; data: Partial<NextjsModule> }>
+    ) => {
+      const { id, data } = action.payload;
+      const index = state.modules.findIndex((mod) => mod.id === id);
       if (index !== -1) {
-        state.modules[index] = action.payload;
+        state.modules[index] = {
+          ...state.modules[index],
+          ...data,
+        };
       }
     },
 
-    deleteModule: (state, action: PayloadAction<Module>) => {
-      state.modules = state.modules.filter(
-        (item) => item.id !== action.payload.id
-      );
+    deleteNextjsModule: (state, action: PayloadAction<string>) => {
+      state.modules = state.modules.filter((mod) => mod.id !== action.payload);
     },
   },
 });
 
-export const {addModule, updateModule, deleteModule} = ModuleSlice.actions
+export const {
+  setNextjsModules,
+  addNextjsModule,
+  updateNextjsModule,
+  deleteNextjsModule,
+} = nextjsModulesSlice.actions;
 
-export default ModuleSlice.reducer;
+export default nextjsModulesSlice.reducer;

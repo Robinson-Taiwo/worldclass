@@ -69,6 +69,9 @@ const SignupForm = () => {
           "Looks like you've signed up with a different method. Try logging in with email or Google."
         );
       }
+      if (err === "auth/network-request-failed") {
+        toast.error("Login failed. check your network connection");
+      }
       console.error("Google auth failed:", err);
     } finally {
       setIsLoading(false);

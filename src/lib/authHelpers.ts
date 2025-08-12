@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   signOut,
+  updateProfile,
   UserCredential,
 } from "firebase/auth";
 import { toast } from "sonner";
@@ -16,13 +17,24 @@ import { toast } from "sonner";
 // Email Signup
 export const registerWithEmail = async (
   email: string,
-  password: string
+  password: string,
+  username?: string,
+  photoURL?: string
 ): Promise<UserCredential> => {
   const userCredential = await createUserWithEmailAndPassword(
     auth,
     email,
     password
   );
+
+  // update profile if extra info is provided
+  if (username || photoURL) {
+    await updateProfile(userCredential.user, {
+      displayName: username || null,
+      photoURL: photoURL || null,
+    });
+  }
+
   await sendEmailVerification(userCredential.user);
   toast.success("Signup successful! Verification email sent.");
   return userCredential;

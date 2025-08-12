@@ -4,7 +4,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ProtectedRoute from "@/components/ProtectedRoute";
+// import ProtectedRoute from "@/components/ProtectedRoute";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +37,10 @@ export default function RootLayout({
           </div>
           <div className="flex pb-8 flex-col ">
             <Navbar />
-            <ProtectedRoute>{children}</ProtectedRoute>
+            {/* <ProtectedRoute>
+
+            </ProtectedRoute> */}
+            {children}
           </div>
 
           <Footer />

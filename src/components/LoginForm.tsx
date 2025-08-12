@@ -23,7 +23,7 @@ import {
 import { loginWithEmail } from "@/lib/authHelpers";
 import { signInWithGoogle, signInWithGithub } from "@/lib/authHelpers";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import { useRouter }  from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/store/slices/UserSlice";
 import {
@@ -67,7 +67,10 @@ const LoginForm = () => {
           id: user.uid,
           email: user.email!,
           username: user.displayName || "",
-          isLoggedIn: true
+          isLoggedIn: true,
+          role: "user",
+          photoURL: user.photoURL || null,
+          phoneNumber: user.phoneNumber || null,
         })
       );
 
@@ -85,6 +88,8 @@ const LoginForm = () => {
           toast.error("Incorrect password.");
         } else if (code === "auth/user-not-found") {
           toast.error("No account found with this email.");
+        } else if (code === "auth/network-request-failed") {
+          toast.error("Login failed. check your network connection");
         } else {
           toast.error("Login failed.");
         }
@@ -113,7 +118,10 @@ const LoginForm = () => {
           id: user.uid,
           email: user.email!,
           username: user.displayName || "",
-          isLoggedIn: true
+          isLoggedIn: true,
+          role: "user",
+          photoURL: user.photoURL || null,
+          phoneNumber: user.phoneNumber || null,
         })
       );
 
@@ -131,6 +139,8 @@ const LoginForm = () => {
         toast.error(
           "Looks like you signed up with a different method. Try logging in with email or GitHub."
         );
+      } else if (err === "auth/internal-error") {
+        toast.error("Login failed. check your network connection");
       } else {
         toast.error("Google login failed.");
       }
@@ -156,7 +166,10 @@ const LoginForm = () => {
           id: user.uid,
           email: user.email!,
           username: user.displayName || "",
-          isLoggedIn:true
+          isLoggedIn: true,
+          role: "user",
+          photoURL: user.photoURL || null,
+          phoneNumber: user.phoneNumber || null,
         })
       );
 
@@ -174,8 +187,10 @@ const LoginForm = () => {
         toast.error(
           "Looks like you signed up with a different method. Try logging in with email or Google."
         );
+      } else if (err === "auth/internal-error") {
+        toast.error("Login failed. check your network connection");
       } else {
-        toast.error("GitHub login failed.");
+        toast.error("GitHub login failed. Might be a connection issue ");
       }
       console.error(err);
     } finally {

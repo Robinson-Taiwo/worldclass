@@ -22,7 +22,7 @@ const Navbar = () => {
     try {
       await logout(); // Firebase logout
       dispatch(clearUser()); // Clear from Redux store
-      router.push("/authentication/login");
+      router.push("/authentication/ogin");
 
       console.log("Logged out successfully");
     } catch (err) {

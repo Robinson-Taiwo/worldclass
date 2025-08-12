@@ -1,7 +1,7 @@
 import SignupForm from "@/components/SignupForm";
 import React from "react";
 
-const Login = () => {
+const Register = () => {
   return (
     <>
       <div className="flex h-screen w-screen flex-row">
@@ -30,5 +30,5 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
 

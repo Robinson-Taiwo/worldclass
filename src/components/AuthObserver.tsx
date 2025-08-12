@@ -18,7 +18,8 @@ export default function AuthObserver() {
             id: user.uid,
             email: user.email || "",
             username: user.displayName || "",
-            isLoggedIn: true
+            isLoggedIn: true,
+            role:"user"
           })
         );
       }

@@ -26,7 +26,7 @@ export default function DashboardPage() {
         {/* 1. Welcome Section */}
         <div className="space-y-1 w-full max-w-full mt-4 px-6">
           <h1 className="lg:text-2xl text-lg  font-bold">
-            Welcome,{user?.username} 👋
+            Welcome, {!user?.email ? "Anonymous" : user?.username} 👋
           </h1>
           <p className="text-muted-foreground">
             Let’s keep your streak alive today.
